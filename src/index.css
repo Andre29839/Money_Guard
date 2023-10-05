@@ -1,0 +1,46 @@
+@import-normalize; /* bring in normalize.css styles */
+@import './stylesheet/vars.css';
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+
+  @keyframes scroll {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 0 100%;
+    }
+  }
+
+  background-image: url(./images/Gradient.png);
+  background-attachment: fixed;
+  background-size: cover;
+  animation: scroll 5s linear infinite alternate;
+  background-color: rgba(16, 16, 16, 1);
+}
+
+code {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
