@@ -21,7 +21,6 @@ export const StyledBalanceBox = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 480px;
     padding-left: 40px;
   }
 
@@ -39,7 +38,7 @@ export const StyledBalanceBox = styled.div`
 `;
 
 export const StyledBalanceLabel = styled.span`
-  color: var(--white-40, rgba(255, 255, 255, 0.4));
+  color: var(--transparency-40);
   font-size: 12px;
   font-style: normal;
   font-weight: 700;

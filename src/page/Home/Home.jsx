@@ -4,8 +4,8 @@ import {
   getTransactionCategoriesThunk,
   getTransactionsThunk,
 } from 'redux/transactionsRedusers/transactionsThunks';
-import TransactionsList from 'components/TransactionsList/TransactionsList';
-import MobileTransactionList from 'components/Table/MobileList';
+// import TransactionsList from 'components/TransactionsList/TransactionsList';
+// import MobileTransactionList from 'components/Table/MobileList';
 import {
   MobileTransactionListWrapper,
   TransactionsListWrapper,
@@ -37,12 +37,12 @@ const Home = () => {
   return (
     <SectionHome>
       <TransactionsListWrapper className={isMobileView ? 'mobile' : 'desktop'}>
-        <TransactionsList />
+        {/* <TransactionsList /> */}
       </TransactionsListWrapper>
       <MobileTransactionListWrapper
         className={isMobileView ? 'desktop' : 'mobile'}
       >
-        <MobileTransactionList />
+        {/* <MobileTransactionList /> */}
       </MobileTransactionListWrapper>
 
       <ModalAddTransactionButton />

@@ -3,12 +3,9 @@ import { StyledBox } from './Currency.styled';
 
 const CurrencyPage = () => {
   return (
-    <div>
-      {' '}
-      <StyledBox>
-        <Currency />
-      </StyledBox>
-    </div>
+    <StyledBox>
+      <Currency />
+    </StyledBox>
   );
 };
 

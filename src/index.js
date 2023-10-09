@@ -11,6 +11,7 @@ import { theme } from 'styles/theme';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import 'modern-normalize/modern-normalize.css';
+import './18n';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>

@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { closeModalLogout } from 'redux/globalReducers/globalSlice';
+import { useEffect } from 'react';
 import { logOutThunk } from 'redux/registerReducers/registerThunks';
 import Button from 'components/Button/Button';
 import moneylogo from '../../images/logo.svg';
@@ -11,62 +9,60 @@ import {
   WrapLogo,
 } from './LogOutModal.styled';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
 
-const ModalLogout = ({ closeReducer }) => {
-  const dispatch = useDispatch();
+const modalRoot = document.querySelector('#modal-root');
 
+export default function ModalLogout({
+  handleBackdropClick = () => {},
+  handleKeyDown = () => {},
+  closeModal = () => {},
+}) {
   useEffect(() => {
-    const onCloseModalEsc = evt => {
-      if (evt.code === 'Escape') {
-        dispatch(closeReducer());
-      }
-    };
-
-    window.addEventListener('keydown', onCloseModalEsc);
+    window.addEventListener('keydown', handleKeyDown);
     return () => {
-      window.removeEventListener('keydown', onCloseModalEsc);
+      window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [closeReducer, dispatch]);
+  }, [handleKeyDown]);
 
-  const onCloseModal = evt => {
-    if (evt.currentTarget === evt.target) {
-      dispatch(closeReducer());
-    }
-  };
+  const dispatch = useDispatch();
 
   const handlerLogout = () => {
     dispatch(logOutThunk());
-    dispatch(closeModalLogout());
+    dispatch(closeModal);
     toast.success(
       `You have successfully logged out. We hope to see you back soon!`
     );
   };
 
-  return (
-    <BackdropLogOut onClick={onCloseModal}>
+  const { t } = useTranslation();
+
+  return createPortal(
+    <BackdropLogOut onClick={handleBackdropClick}>
       <ModalLogOut>
         <WrapLogo>
           <img src={moneylogo} alt="MoneyGuard Logo" />
           <h3>Money Guard</h3>
         </WrapLogo>
-        <p>Are you sure you want to log out?</p>
+        <p>{t('logout text')}</p>
         <BtnWrapper>
           <Button
             type="button"
             onClick={handlerLogout}
             variant="primary"
-            text="Logout"
+            text={t('logout')}
           />
           <Button
             type="button"
-            onClick={() => dispatch(closeModalLogout())}
+            onClick={closeModal}
             variant="secondary"
-            text="Cancel"
+            text={t('cancel')}
           />
         </BtnWrapper>
       </ModalLogOut>
-    </BackdropLogOut>
+    </BackdropLogOut>,
+    modalRoot
   );
-};
-
-export default ModalLogout;
+}

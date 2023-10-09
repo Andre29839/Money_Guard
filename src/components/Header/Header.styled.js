@@ -16,19 +16,18 @@ export const HeaderStyled = styled.header`
 export const WrapHeader = styled.div`
   display: flex;
 
-  gap: 110px;
   align-items: center;
   width: 280px;
   margin: 0 auto;
+  justify-content: space-between;
 
   @media only screen and (min-width: 768px) {
-    width: 688px;
-    gap: 408px;
+    /* width: 688px; */
+    /* gap: 408px; */
   }
 
   @media only screen and (min-width: 1280px) {
     width: 1200px;
-    /* gap: 430px; */
     justify-content: space-between;
   }
 `;

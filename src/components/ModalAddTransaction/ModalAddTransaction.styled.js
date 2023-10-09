@@ -19,7 +19,7 @@ export const Heading = styled.h3`
   font-weight: 400;
   margin: 0;
 
-  @media (max-width: 767px) {
+  @media screen and (max-width: 767.9px) {
     font-size: 24px;
   }
 `;

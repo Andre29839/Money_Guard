@@ -1,10 +1,4 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useMediaQuery } from 'react-responsive';
-import {
-  closeModalLogout,
-  openModalLogout,
-} from 'redux/globalReducers/globalSlice';
+import { useSelector } from 'react-redux';
 import moneylogo from '../../images/logo.svg';
 import {
   LogoExit,
@@ -15,37 +9,46 @@ import {
 } from './Header.styled';
 import { selectAuthData } from 'redux/registerReducers/registerSelector';
 import ModalLogout from 'components/LogOutModal/LogOutModal';
-import { selectIsModalLogOut } from 'redux/globalReducers/globalSelectors';
+import { useTranslation } from 'react-i18next';
+import useToggleModal from 'Hooks/useToggleModal';
+import Container from 'components/Container/Container';
+import useWindow from 'Hooks/useWindow';
 
 const Header = () => {
   const userData = useSelector(selectAuthData);
-  const isModalShow = useSelector(selectIsModalLogOut);
-  const isMobilesize = useMediaQuery({ query: '(max-width:767.9px)' });
-  const dispatch = useDispatch();
 
-  const handleLogout = () => {
-    dispatch(openModalLogout());
-  };
+  const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
+    useToggleModal();
+
+  const { isMobile } = useWindow();
+
+  const { t } = useTranslation();
 
   return (
     <>
       <HeaderStyled>
-        <WrapHeader>
-          <WrapLogo>
-            <img src={moneylogo} alt="MoneyGuard_Logo" />
-            <p>Money Guard</p>
-          </WrapLogo>
-          <WrapBtn>
-            <span>{userData?.username}</span>
-            <button onClick={handleLogout}>
-              <LogoExit />
-              {isMobilesize ? '' : 'Exit'}
-            </button>
-          </WrapBtn>
-        </WrapHeader>
+        <Container>
+          <WrapHeader>
+            <WrapLogo>
+              <img src={moneylogo} alt="MoneyGuard_Logo" />
+              <p>Money Guard</p>
+            </WrapLogo>
+            <WrapBtn>
+              <span>{userData?.username}</span>
+              <button onClick={() => openModal()}>
+                <LogoExit />
+                {isMobile || <span>{t('exit')}</span>}
+              </button>
+            </WrapBtn>
+          </WrapHeader>
+        </Container>
       </HeaderStyled>
-      {isModalShow && (
-        <ModalLogout closeReducer={() => dispatch(closeModalLogout())} />
+      {isOpen && (
+        <ModalLogout
+          closeModal={() => closeModal()}
+          handleKeyDown={handleKeyDown}
+          handleBackdropClick={handleBackdropClick}
+        />
       )}
     </>
   );
