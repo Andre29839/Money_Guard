@@ -1,11 +1,8 @@
 import { AiOutlinePlus } from 'react-icons/ai';
-import ModalAddTransaction from '../ModalAddTransaction';
 import useToggleModal from 'Hooks/useToggleModal';
+import ModalAddTransaction from '../ModalAddTransaction';
 import ModalForm from 'components/ModalForm/ModalForm';
-import {
-  AddBtn,
-  BtnRightCorner,
-} from 'components/ModalAddTransaction/ModalAddTransactionButton/ModalAddTransactionButton.styled';
+import { AddBtn, BtnRightCorner } from './ModalAddTransactionButton.styled';
 
 const ModalAddTransactionButton = () => {
   const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =

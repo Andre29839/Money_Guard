@@ -1,5 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import moneylogo from '../../images/logo.svg';
+import { selectAuthData } from 'redux/registerReducers/registerSelector';
+import moneylogo from 'images/logo.svg';
+import useToggleModal from 'Hooks/useToggleModal';
+import useWindow from 'Hooks/useWindow';
+import ModalLogout from 'components/LogOutModal/LogOutModal';
+import Container from 'components/Container/Container';
 import {
   LogoExit,
   WrapBtn,
@@ -7,12 +13,7 @@ import {
   HeaderStyled,
   WrapLogo,
 } from './Header.styled';
-import { selectAuthData } from 'redux/registerReducers/registerSelector';
-import ModalLogout from 'components/LogOutModal/LogOutModal';
-import { useTranslation } from 'react-i18next';
-import useToggleModal from 'Hooks/useToggleModal';
-import Container from 'components/Container/Container';
-import useWindow from 'Hooks/useWindow';
+import TranslationPanel from 'components/TranslationPanel/TranslationPanel';
 
 const Header = () => {
   const userData = useSelector(selectAuthData);
@@ -33,8 +34,15 @@ const Header = () => {
               <img src={moneylogo} alt="MoneyGuard_Logo" />
               <p>Money Guard</p>
             </WrapLogo>
+            <TranslationPanel />
             <WrapBtn>
-              <span>{userData?.username}</span>
+              <span>
+                {userData?.username
+                  ? userData?.username.length > 8 && isMobile
+                    ? userData?.username.substring(0, 8) + '...'
+                    : userData?.username
+                  : '-'}
+              </span>
               <button onClick={() => openModal()}>
                 <LogoExit />
                 {isMobile || <span>{t('exit')}</span>}

@@ -51,13 +51,13 @@ export const SwitchSlider = styled.label`
       ${props => (props.checked ? 'var(--yellow)' : 'var(--dashboard-text)')};
 
     &:first-of-type {
-      fill: 'var(--total-white)';
+      fill: white;
       opacity: ${props => (props.checked ? '1' : '0')};
     }
 
     &:last-of-type {
       opacity: ${props => (props.checked ? '0' : '1')};
-      fill: 'var(--total-white)';
+      fill: white;
     }
   }
 `;

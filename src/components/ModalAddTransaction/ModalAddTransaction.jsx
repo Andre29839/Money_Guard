@@ -3,6 +3,13 @@ import { parse } from 'date-fns';
 import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { object, string, date, bool, mixed, number } from 'yup';
+import { selectTransactionsCategories } from 'redux/transactionsRedusers/transactionsSelectors';
+import { addTransactionsThunk } from 'redux/transactionsRedusers/transactionsThunks';
+import DateTimePicker from 'components/DateTimePicker/DateTimePicker';
+import TextArea from 'components/TextArea/TextArea';
+import CategorySelect from 'components/CategorySelect/CategorySelect';
+import Button from 'components/Button/Button';
+import Switch from './Switch/Switch';
 import {
   BaseInput,
   CalendarWrapper,
@@ -12,13 +19,6 @@ import {
   InputWrapper,
   TwoColumnRow,
 } from './ModalAddTransaction.styled';
-import DateTimePicker from 'components/DateTimePicker/DateTimePicker';
-import TextArea from 'components/TextArea/TextArea';
-import { selectTransactionsCategories } from 'redux/transactionsRedusers/transactionsSelectors';
-import { addTransactionsThunk } from 'redux/transactionsRedusers/transactionsThunks';
-import Switch from './Switch/Switch';
-import CategorySelect from 'components/CategorySelect/CategorySelect';
-import Button from 'components/Button/Button';
 
 const ModalAddTransaction = ({ closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -84,7 +84,7 @@ const ModalAddTransaction = ({ closeModal }) => {
         comment: string()
           .notRequired()
           .max(25, 'Maximum must be 25 characters')
-          .min(5, 'Minimum must be 5 characters'),
+          .min(3, 'Minimum must be 3 characters'),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         try {

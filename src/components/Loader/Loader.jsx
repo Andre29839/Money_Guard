@@ -1,25 +1,24 @@
-import React from 'react';
-import { Dna } from 'react-loader-spinner';
+import { useEffect } from 'react';
+import { ReactComponent as TopIcon } from 'images/loader/top-part.svg';
+import { ReactComponent as LeftMid } from 'images/loader/left-mid-part.svg';
+import { ReactComponent as LeftBottom } from 'images/loader/left-bottom-part.svg';
+import { ReactComponent as RightTop } from 'images/loader/right-top-part.svg';
+import { ReactComponent as RightBottom } from 'images/loader/right-bottom-part.svg';
+import { LoaderWrapper } from './Loader.styled';
 
 const Loader = () => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => (document.body.style.overflow = 'scroll');
+  });
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-      }}
-    >
-      <Dna
-        visible={true}
-        height={80}
-        width={80}
-        ariaLabel="dna-loading"
-        wrapperStyle={{}}
-        wrapperClass="dna-wrapper"
-      />
-    </div>
+    <LoaderWrapper>
+      <TopIcon width={35} height={35} />
+      <LeftMid width={45} height={45} />
+      <RightTop width={30} height={30} />
+      <LeftBottom width={30} height={30} />
+      <RightBottom width={30} height={30} />
+    </LoaderWrapper>
   );
 };
 

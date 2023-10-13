@@ -1,10 +1,15 @@
+import { useTranslation } from 'react-i18next';
 import { Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import { usePasswordToggle } from 'Hooks/usePasswordToggle';
+import { logInThunk } from 'redux/registerReducers/registerThunks';
 import { loginSchema } from 'services/validation/validationLoginSchema';
 import { Logo } from 'components/Logo/Logo';
 import { FormError } from 'components/FormError/FormError';
 import { TogglePasswordIcon } from 'components/TogglePasswordVisibility/TogglePasswordVisibility';
+import { LinkStyled } from 'components/RegisterForm/RegisterForm.styled';
+import Button from 'components/Button/Button';
 import {
   EmailIcon,
   FieldStyled,
@@ -17,10 +22,6 @@ import {
   WrapperIcon2,
   WrapperIcon3,
 } from './LoginForm.styled';
-import { LinkStyled } from 'components/RegisterForm/RegisterForm.styled';
-import { usePasswordToggle } from 'Hooks/usePasswordToggle';
-import Button from 'components/Button/Button';
-import { logInThunk } from 'redux/registerReducers/registerThunks';
 
 export const LoginForm = () => {
   const { showPasswords, togglePasswordVisibility } = usePasswordToggle([
@@ -28,6 +29,8 @@ export const LoginForm = () => {
     'password2',
   ]);
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   const initialValues = {
     email: '',
@@ -40,11 +43,11 @@ export const LoginForm = () => {
       .then(data => {
         resetForm();
         toast.success(
-          `Well done, ${data.user.username}! You have signed in successfully.`
+          `${t('well done')}, ${data.user.username}! ${t('login')}`
         );
       })
       .catch(error => {
-        toast.error("You entered incorrect data, please check your password or email!");
+        toast.error(t('login error'));
       });
   };
 
@@ -62,8 +65,8 @@ export const LoginForm = () => {
               <FieldStyled
                 type="email"
                 name="email"
-                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                placeholder="E-mail"
+                title={t('login title email')}
+                placeholder={t('email')}
                 autoComplete="off"
                 required
               />
@@ -75,8 +78,8 @@ export const LoginForm = () => {
                 <FieldStyled
                   type={showPasswords.password1 ? 'text' : 'password'}
                   name="password"
-                  title="Enter the password more difficult, letter, digit, capital letter."
-                  placeholder="Password"
+                  title={t('login title password')}
+                  placeholder={t('password')}
                   autoComplete="off"
                   required
                 />
@@ -90,11 +93,11 @@ export const LoginForm = () => {
             <FormError name="password" />
           </WrapperField>
           <WrapperButton>
-            <Button variant="primary" type="submit" text="log in" />
+            <Button variant="primary" type="submit" text={t('login btn')} />
           </WrapperButton>
         </FormStyled>
       </Formik>
-      <LinkStyled to="/register">Register</LinkStyled>
+      <LinkStyled to="/register">{t('register')}</LinkStyled>
     </WrapperForm>
   );
 };

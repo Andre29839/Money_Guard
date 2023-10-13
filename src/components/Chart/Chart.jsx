@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 import { selectAuthData } from 'redux/registerReducers/registerSelector';
 import { useSelector } from 'react-redux';
 import { ChartWrapper, ImgMoney } from './Chart.styled';
-import money from '../../images/money.png';
+import money from 'images/money.png';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -56,12 +56,10 @@ const Chart = ({ data }) => {
   };
 
   return (
-    <div>
-      <ChartWrapper>
-        <Doughnut data={chartData} options={options} />
-        {data ? <span> ₴ {totalBalance.balance}</span> : ''}
-      </ChartWrapper>
-    </div>
+    <ChartWrapper>
+      <Doughnut data={chartData} options={options} />
+      {data ? <span> &#8372; {totalBalance.balance}</span> : ''}
+    </ChartWrapper>
   );
 };
 

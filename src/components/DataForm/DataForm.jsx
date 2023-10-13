@@ -3,10 +3,12 @@ import Select from 'react-select';
 import { useDispatch } from 'react-redux';
 import { getTransactionsStatisticThunk } from 'redux/transactionsRedusers/transactionsThunks';
 import { SelectBox, customSelect } from './DataForm.styled';
+import { useTranslation } from 'react-i18next';
 
 const DatePicker = () => {
   const dispatch = useDispatch();
   const date = new Date();
+  const { t } = useTranslation();
 
   const [month, setMonth] = useState(date.getMonth() + 1);
   const [year, setYear] = useState(date.getFullYear());
@@ -31,18 +33,18 @@ const DatePicker = () => {
   }, [dispatch, month, year]);
 
   const months = [
-    { value: 1, label: 'January' },
-    { value: 2, label: 'February' },
-    { value: 3, label: 'March' },
-    { value: 4, label: 'April' },
-    { value: 5, label: 'May' },
-    { value: 6, label: 'June' },
-    { value: 7, label: 'July' },
-    { value: 8, label: 'August' },
-    { value: 9, label: 'September' },
-    { value: 10, label: 'October' },
-    { value: 11, label: 'November' },
-    { value: 12, label: 'December' },
+    { value: 1, label: t('january') },
+    { value: 2, label: t('february') },
+    { value: 3, label: t('march') },
+    { value: 4, label: t('april') },
+    { value: 5, label: t('may') },
+    { value: 6, label: t('june') },
+    { value: 7, label: t('july') },
+    { value: 8, label: t('august') },
+    { value: 9, label: t('september') },
+    { value: 10, label: t('october') },
+    { value: 11, label: t('november') },
+    { value: 12, label: t('december') },
   ];
 
   const currentYear = new Date().getFullYear();

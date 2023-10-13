@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshAuthThunk } from 'redux/registerReducers/registerThunks';
-import UserRoutes from './UserRoutes';
 import {
   selectIsLogin,
   selectToken,
 } from 'redux/registerReducers/registerSelector';
+import UserRoutes from './UserRoutes';
 
 function App() {
   const dispatch = useDispatch();

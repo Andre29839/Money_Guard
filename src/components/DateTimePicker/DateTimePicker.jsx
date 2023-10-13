@@ -1,13 +1,24 @@
 import 'react-datepicker/dist/react-datepicker.css';
-import { format, isValid } from 'date-fns';
-import { useField, useFormikContext } from 'formik';
-import { StyledDateTime, IconStyled } from './DateTimePicker.styled';
-import DatePicker from 'react-datepicker';
 import React from 'react';
+import { useField, useFormikContext } from 'formik';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import { useTranslation } from 'react-i18next';
+import { format, isValid } from 'date-fns';
+import ua from 'date-fns/locale/uk';
+import en from 'date-fns/locale/en-US';
+import {
+  StyledDateTime,
+  IconStyled,
+  CalendarGlobalStyles,
+} from './DateTimePicker.styled';
 
 const DateTimePicker = ({ name }) => {
   const [field] = useField(name);
   const { setFieldValue } = useFormikContext();
+  const { i18n } = useTranslation();
+
+  registerLocale('en', en);
+  registerLocale('ua', ua);
 
   const CustomInput = React.forwardRef(({ value, onClick }, ref) => (
     <label>
@@ -29,7 +40,9 @@ const DateTimePicker = ({ name }) => {
         }}
         dateFormat="dd.MM.yyyy"
         customInput={<CustomInput />}
+        locale={i18n.language}
       />
+      <CalendarGlobalStyles />
     </StyledDateTime>
   );
 };

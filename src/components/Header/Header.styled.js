@@ -22,8 +22,7 @@ export const WrapHeader = styled.div`
   justify-content: space-between;
 
   @media only screen and (min-width: 768px) {
-    /* width: 688px; */
-    /* gap: 408px; */
+    width: 688px;
   }
 
   @media only screen and (min-width: 1280px) {
@@ -37,6 +36,7 @@ export const WrapLogo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: auto;
 
   img {
     width: 17px;

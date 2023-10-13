@@ -1,17 +1,17 @@
+import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
+import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { logOutThunk } from 'redux/registerReducers/registerThunks';
+import moneylogo from 'images/logo.svg';
 import Button from 'components/Button/Button';
-import moneylogo from '../../images/logo.svg';
 import {
   BackdropLogOut,
   BtnWrapper,
   ModalLogOut,
   WrapLogo,
 } from './LogOutModal.styled';
-import { toast } from 'react-toastify';
-import { useTranslation } from 'react-i18next';
-import { createPortal } from 'react-dom';
-import { useDispatch } from 'react-redux';
 
 const modalRoot = document.querySelector('#modal-root');
 
@@ -29,15 +29,13 @@ export default function ModalLogout({
 
   const dispatch = useDispatch();
 
+  const { t } = useTranslation();
+
   const handlerLogout = () => {
     dispatch(logOutThunk());
     dispatch(closeModal);
-    toast.success(
-      `You have successfully logged out. We hope to see you back soon!`
-    );
+    toast.success(t('logout success'));
   };
-
-  const { t } = useTranslation();
 
   return createPortal(
     <BackdropLogOut onClick={handleBackdropClick}>

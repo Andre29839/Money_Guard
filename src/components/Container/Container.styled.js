@@ -20,11 +20,6 @@ const ContainerStyle = styled.div`
   @media screen and (${breakpoints.tablet}) {
     padding: 0 32px;
   }
-
-  @media screen and (${breakpoints.desktop}) {
-    width: 715px;
-    padding: 0 16px 0 69px;
-  }
 `;
 
 export default ContainerStyle;

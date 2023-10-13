@@ -4,8 +4,6 @@ export const StyledBalanceBox = styled.div`
   display: flex;
   flex-direction: column;
 
-  max-width: ${props => props.maxW || '424px'};
-
   padding-top: 8px;
   padding-bottom: 11px;
   padding-left: ${props => props.padL || '56px'};

@@ -1,6 +1,6 @@
 import React from 'react';
+import moneyGuardLogo from 'images/logo.svg';
 import { LogoForm, TitleLogo, WrapperLogo } from './Logo.styled';
-import moneyGuardLogo from '../../images/logo.svg';
 
 export const Logo = () => {
   return (
