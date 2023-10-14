@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Money_Guard/static/css/main.83b8eec4.css",
-    "main.js": "/Money_Guard/static/js/main.94c97a7e.js",
-    "static/js/97.5b6eab60.chunk.js": "/Money_Guard/static/js/97.5b6eab60.chunk.js",
-    "static/js/73.6e45c4c8.chunk.js": "/Money_Guard/static/js/73.6e45c4c8.chunk.js",
-    "static/js/9.69fdaabf.chunk.js": "/Money_Guard/static/js/9.69fdaabf.chunk.js",
-    "static/js/969.45dcc1bd.chunk.js": "/Money_Guard/static/js/969.45dcc1bd.chunk.js",
-    "static/js/945.a8a0ed28.chunk.js": "/Money_Guard/static/js/945.a8a0ed28.chunk.js",
-    "static/js/923.a4b61fc6.chunk.js": "/Money_Guard/static/js/923.a4b61fc6.chunk.js",
+    "main.js": "/Money_Guard/static/js/main.615caeee.js",
+    "static/js/97.db272317.chunk.js": "/Money_Guard/static/js/97.db272317.chunk.js",
+    "static/js/73.ceeaf3c8.chunk.js": "/Money_Guard/static/js/73.ceeaf3c8.chunk.js",
+    "static/js/9.0db59b7c.chunk.js": "/Money_Guard/static/js/9.0db59b7c.chunk.js",
+    "static/js/631.3b3eb99c.chunk.js": "/Money_Guard/static/js/631.3b3eb99c.chunk.js",
+    "static/js/945.3b2c4e55.chunk.js": "/Money_Guard/static/js/945.3b2c4e55.chunk.js",
+    "static/js/923.ef8fe76f.chunk.js": "/Money_Guard/static/js/923.ef8fe76f.chunk.js",
     "static/js/355.a575088c.chunk.js": "/Money_Guard/static/js/355.a575088c.chunk.js",
     "static/js/569.b68a8b1e.chunk.js": "/Money_Guard/static/js/569.b68a8b1e.chunk.js",
     "static/js/385.0a3588dd.chunk.js": "/Money_Guard/static/js/385.0a3588dd.chunk.js",
-    "static/js/963.6d167b23.chunk.js": "/Money_Guard/static/js/963.6d167b23.chunk.js",
+    "static/js/963.e52582ce.chunk.js": "/Money_Guard/static/js/963.e52582ce.chunk.js",
     "static/media/Gradient.png": "/Money_Guard/static/media/Gradient.519113a645fa909dcaa5.png",
     "static/media/bg-register-desktop@2x.jpg": "/Money_Guard/static/media/bg-register-desktop@2x.7208adbe318b1dd9d0be.jpg",
     "static/media/bg-register-tablet@2x.jpg": "/Money_Guard/static/media/bg-register-tablet@2x.010019b9d54926c0c140.jpg",
@@ -33,20 +33,20 @@
     "static/media/left-bottom-part.svg": "/Money_Guard/static/media/left-bottom-part.c9cfa8c83a2cdc87589417e8b586ffd1.svg",
     "static/media/right-bottom-part.svg": "/Money_Guard/static/media/right-bottom-part.ec07fda7d9ab133f7b181eae52c15c89.svg",
     "main.83b8eec4.css.map": "/Money_Guard/static/css/main.83b8eec4.css.map",
-    "main.94c97a7e.js.map": "/Money_Guard/static/js/main.94c97a7e.js.map",
-    "97.5b6eab60.chunk.js.map": "/Money_Guard/static/js/97.5b6eab60.chunk.js.map",
-    "73.6e45c4c8.chunk.js.map": "/Money_Guard/static/js/73.6e45c4c8.chunk.js.map",
-    "9.69fdaabf.chunk.js.map": "/Money_Guard/static/js/9.69fdaabf.chunk.js.map",
-    "969.45dcc1bd.chunk.js.map": "/Money_Guard/static/js/969.45dcc1bd.chunk.js.map",
-    "945.a8a0ed28.chunk.js.map": "/Money_Guard/static/js/945.a8a0ed28.chunk.js.map",
-    "923.a4b61fc6.chunk.js.map": "/Money_Guard/static/js/923.a4b61fc6.chunk.js.map",
+    "main.615caeee.js.map": "/Money_Guard/static/js/main.615caeee.js.map",
+    "97.db272317.chunk.js.map": "/Money_Guard/static/js/97.db272317.chunk.js.map",
+    "73.ceeaf3c8.chunk.js.map": "/Money_Guard/static/js/73.ceeaf3c8.chunk.js.map",
+    "9.0db59b7c.chunk.js.map": "/Money_Guard/static/js/9.0db59b7c.chunk.js.map",
+    "631.3b3eb99c.chunk.js.map": "/Money_Guard/static/js/631.3b3eb99c.chunk.js.map",
+    "945.3b2c4e55.chunk.js.map": "/Money_Guard/static/js/945.3b2c4e55.chunk.js.map",
+    "923.ef8fe76f.chunk.js.map": "/Money_Guard/static/js/923.ef8fe76f.chunk.js.map",
     "355.a575088c.chunk.js.map": "/Money_Guard/static/js/355.a575088c.chunk.js.map",
     "569.b68a8b1e.chunk.js.map": "/Money_Guard/static/js/569.b68a8b1e.chunk.js.map",
     "385.0a3588dd.chunk.js.map": "/Money_Guard/static/js/385.0a3588dd.chunk.js.map",
-    "963.6d167b23.chunk.js.map": "/Money_Guard/static/js/963.6d167b23.chunk.js.map"
+    "963.e52582ce.chunk.js.map": "/Money_Guard/static/js/963.e52582ce.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.83b8eec4.css",
-    "static/js/main.94c97a7e.js"
+    "static/js/main.615caeee.js"
   ]
 }
