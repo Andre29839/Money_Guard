@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const TitleStatistics = styled.h2`
   font-size: 30px;
   font-weight: 400;
-  margin-top: 40px;
+  margin-top: 28px;
   margin-bottom: 8px;
   color: var(--white);
   @media only screen and (min-width: 768px) {
@@ -22,8 +22,6 @@ export const StatisticsWrapper = styled.div`
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
-  /* padding-left: 20px; */
-  /* padding-right: 20px; */
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;

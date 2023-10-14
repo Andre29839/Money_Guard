@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 export const usePasswordStrength = () => {
+  const { t } = useTranslation();
   const getPasswordStrengthWidth = password => {
     const maxLength = 10;
     const passwordLength = password?.length || 0;
@@ -30,9 +33,9 @@ export const usePasswordStrength = () => {
 
   const getPasswordStrengthText = password => {
     const passwordStrengthRanges = [
-      { min: 2, max: 6, text: 'Weak Password' },
-      { min: 7, max: 10, text: 'Medium Strength Password' },
-      { min: 11, max: Infinity, text: 'Strong Password' },
+      { min: 2, max: 6, text: t('Weak Password') },
+      { min: 7, max: 10, text: t('Medium Strength Password') },
+      { min: 11, max: Infinity, text: t('Strong Password') },
     ];
 
     const { text } = passwordStrengthRanges.find(

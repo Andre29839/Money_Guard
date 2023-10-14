@@ -1,56 +1,35 @@
-import React from 'react';
-import { useMediaQuery } from 'react-responsive';
-import {
-  StyledNavList,
-  StyledNavListMob,
-  ActiveNavLink,
-  ActiveNavLinkMob,
-  StyledIoMdHome,
-  StyledSlGraph,
-  StyledPiCurrencyDollarSimple,
-} from './Navigation.styled';
+import { useTranslation } from 'react-i18next';
+import { IoMdHome } from 'react-icons/io';
+import { PiCurrencyDollarSimple } from 'react-icons/pi';
+import { SlGraph } from 'react-icons/sl';
+
+import { StyledNavList, ActiveNavLink, StyledSpan } from './Navigation.styled';
+import useWindow from 'Hooks/useWindow';
 
 const Navigation = () => {
-  const isMobile = useMediaQuery({ minWidth: 240, maxWidth: 767.9 });
-  const isTabletAndDesktop = useMediaQuery({ minWidth: 768 });
+  const { t } = useTranslation();
+  const { isTabletAndDesktop } = useWindow();
 
   return (
     <nav>
-      <div>
-        {isTabletAndDesktop && (
-          <StyledNavList>
-            <li>
-              <ActiveNavLink to="/home">
-                <StyledIoMdHome /> Home
-              </ActiveNavLink>
-            </li>
-            <li>
-              <ActiveNavLink to="/statistic">
-                <StyledSlGraph /> Statistic
-              </ActiveNavLink>
-            </li>
-          </StyledNavList>
-        )}
-        {isMobile && (
-          <StyledNavListMob>
-            <li>
-              <ActiveNavLinkMob to="/home">
-                <StyledIoMdHome />
-              </ActiveNavLinkMob>
-            </li>
-            <li>
-              <ActiveNavLinkMob to="/statistic">
-                <StyledSlGraph />
-              </ActiveNavLinkMob>
-            </li>
-            <li>
-              <ActiveNavLinkMob to="/currency">
-                <StyledPiCurrencyDollarSimple />
-              </ActiveNavLinkMob>
-            </li>
-          </StyledNavListMob>
-        )}
-      </div>
+      <StyledNavList>
+        <li>
+          <ActiveNavLink to="/home">
+            <IoMdHome /> <StyledSpan>{t('home')}</StyledSpan>
+          </ActiveNavLink>
+        </li>
+        <li>
+          <ActiveNavLink to="/statistic">
+            <SlGraph />
+            <StyledSpan>{t('stat')}</StyledSpan>
+          </ActiveNavLink>
+        </li>
+        <li>
+          <ActiveNavLink $hideIcon={isTabletAndDesktop} to="/currency">
+            <PiCurrencyDollarSimple />
+          </ActiveNavLink>
+        </li>
+      </StyledNavList>
     </nav>
   );
 };

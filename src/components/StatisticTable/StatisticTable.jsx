@@ -1,4 +1,4 @@
-import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { nanoid } from 'nanoid';
 import { useSelector } from 'react-redux';
 import {
@@ -19,6 +19,8 @@ import {
 } from './StatisticTable.styled';
 
 const StatisticTable = () => {
+  const { t } = useTranslation();
+
   const sumOfCategories = useSelector(
     state => state.transactions.summary.categoriesSummary
   );
@@ -52,8 +54,8 @@ const StatisticTable = () => {
           <StyledTable>
             <Thead>
               <tr>
-                <ThCategory>Category</ThCategory>
-                <ThSum>Sum</ThSum>
+                <ThCategory>{t('category')}</ThCategory>
+                <ThSum>{t('sum')}</ThSum>
               </tr>
             </Thead>
             <tbody>
@@ -65,7 +67,7 @@ const StatisticTable = () => {
                         <TransactionColor
                           color={colorStatistics[category.name]}
                         ></TransactionColor>
-                        <span>{category.name}</span>
+                        <span>{t(category.name)}</span>
                       </TdCategory>
                       <TdSum>{category.total}</TdSum>
                     </tr>
@@ -77,11 +79,11 @@ const StatisticTable = () => {
         </StyledWrap>
         <div>
           <WrapSummary>
-            <Transaction>Expenses:</Transaction>
+            <Transaction>{t('expense')}:</Transaction>
             <TotalExpense>{expenseSum}</TotalExpense>
           </WrapSummary>
           <WrapIncome>
-            <Transaction>Income:</Transaction>
+            <Transaction>{t('income')}:</Transaction>
             <Total>{incomeSum}</Total>
           </WrapIncome>
         </div>

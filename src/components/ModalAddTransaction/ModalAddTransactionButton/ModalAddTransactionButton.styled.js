@@ -31,7 +31,7 @@ export const BtnRightCorner = styled.div`
   position: absolute;
 
   @media screen and (max-width: 767.9px) {
-    right: auto;
+    right: 0;
     bottom: 20px;
     position: fixed;
   }

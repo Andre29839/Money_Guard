@@ -39,11 +39,12 @@ export const StyledTable = styled.table`
       props.type ? 'var(--yellow)' : 'var(--dashboard-text)'};
   }
   th {
-    width: 103px;
+    width: 133px;
     padding: 12px 0 12px 20px;
   }
 
   td {
+    max-width: 147px;
     padding: 12px 20px 12px 0;
   }
 
@@ -135,7 +136,7 @@ export const CommonBtnStyles = styled.button`
 export const DeleteBtn = styled(CommonBtnStyles)`
   border-radius: 18px;
   padding: 4px 12px;
-  width: 69px;
+  max-width: 90px;
   height: 29px;
   text-align: center;
   font-size: 14px;
@@ -147,6 +148,12 @@ export const DeleteBtn = styled(CommonBtnStyles)`
     linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)
   );
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  &:focus,
+  &:hover {
+    border: 1px solid yellow;
+    transform: scale(1.01);
+    box-shadow: 1px 5px 8px 0px rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const SectionHome = styled.section`

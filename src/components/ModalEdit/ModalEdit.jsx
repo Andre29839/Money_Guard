@@ -21,6 +21,7 @@ import { patchTransactionsThunk } from 'redux/transactionsRedusers/transactionsT
 import Button from 'components/Button/Button';
 import { refreshBalanceThunk } from 'redux/registerReducers/registerThunks';
 import { selectTransactionsCategories } from 'redux/transactionsRedusers/transactionsSelectors';
+import { useTranslation } from 'react-i18next';
 
 const ModalEdit = ({ closeModal, item }) => {
   const categories = useSelector(selectTransactionsCategories);
@@ -30,6 +31,7 @@ const ModalEdit = ({ closeModal, item }) => {
   }, {});
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const isExpense = item.type === 'EXPENSE';
 
   const dateTransformer = (_, originalValue) => {
@@ -65,22 +67,21 @@ const ModalEdit = ({ closeModal, item }) => {
       }}
       validationSchema={object({
         value: number()
-          .typeError('Transaction value must be a number')
+          .typeError(t('Transaction value must be a number'))
           .test(
             'len',
-            'Transaction value can be a maximum of 16 characters',
-            val => val.toString().length <= 16
+            t('Transaction value can be a maximum of 10 characters'),
+            val => val.toString().length <= 10
           )
-          .required('Please provide transaction value.'),
-
+          .required(t('Please provide transaction value.')),
         date: date()
           .transform(dateTransformer)
-          .typeError('Please enter a valid date')
-          .required('Please provide transaction date.'),
+          .typeError(t('Please enter a valid date'))
+          .required(t('Please provide transaction date.')),
         comment: string()
           .notRequired()
-          .max(25, 'Maximum must be 25 characters')
-          .min(5, 'Minimum must be 5 characters'),
+          .max(25, t('Maximum must be 25 characters'))
+          .min(3, t('Minimum must be 3 characters')),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         handleSubmit(values);
@@ -92,18 +93,22 @@ const ModalEdit = ({ closeModal, item }) => {
     >
       {({ values, setFieldValue, handleBlur }) => (
         <FormikForm>
-          <Heading>Edit transaction</Heading>
+          <Heading>{t('Edit transaction')}</Heading>
           <TransactionTypeDiv>
-            <IncomeSpan $active={item.type === 'INCOME'}>Income</IncomeSpan>
+            <IncomeSpan $active={item.type === 'INCOME'}>
+              {t('income')}
+            </IncomeSpan>
             <RxSlash />
-            <ExpenseSpan $active={item.type === 'EXPENSE'}>Expense</ExpenseSpan>
+            <ExpenseSpan $active={item.type === 'EXPENSE'}>
+              {t('expense')}
+            </ExpenseSpan>
           </TransactionTypeDiv>
           {isExpense && (
             <InputWrapper>
               <TextArea
                 name="category"
                 autoComplete="off"
-                value={gategoryNamesbyId[item.categoryId]}
+                value={t(gategoryNamesbyId[item.categoryId])}
                 readOnly
               />
 
@@ -114,7 +119,7 @@ const ModalEdit = ({ closeModal, item }) => {
             <InputWrapper>
               <BaseInput
                 placeholder="0.00"
-                title="Please put the transaction value"
+                title={t('Please put the transaction value')}
                 name="value"
                 type="number"
                 autoComplete="off"
@@ -123,6 +128,7 @@ const ModalEdit = ({ closeModal, item }) => {
                 onBlur={handleBlur}
                 onKeyUp={handleBlur}
               />
+              <ErrorText name="value" component="div" />
             </InputWrapper>
             <CalendarWrapper>
               <DateTimePicker
@@ -136,21 +142,21 @@ const ModalEdit = ({ closeModal, item }) => {
           </TwoColumnRow>
           <InputWrapper>
             <TextArea
-              placeholder="Comment"
-              title="Please describe your transaction."
+              placeholder={t('comment')}
+              title={t('Please describe your transaction.')}
               name="comment"
               type="text"
               autoComplete="off"
             />
             <ErrorText name="comment" component="div" />
           </InputWrapper>
-          <Button type="submit" variant="primary" text={'Save'} />
+          <Button type="submit" variant="primary" text={t('save')} />
           <Button
             type="button"
             variant="secondary"
             style={{ marginBotoom: 0, marginTop: '-40px' }}
             onClick={() => closeModal()}
-            text={'Cancel'}
+            text={t('cancel')}
           />
         </FormikForm>
       )}

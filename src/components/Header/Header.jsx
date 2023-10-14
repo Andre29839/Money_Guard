@@ -12,6 +12,7 @@ import {
   WrapHeader,
   HeaderStyled,
   WrapLogo,
+  DivWrapper,
 } from './Header.styled';
 import TranslationPanel from 'components/TranslationPanel/TranslationPanel';
 
@@ -34,20 +35,22 @@ const Header = () => {
               <img src={moneylogo} alt="MoneyGuard_Logo" />
               <p>Money Guard</p>
             </WrapLogo>
-            <TranslationPanel />
-            <WrapBtn>
-              <span>
-                {userData?.username
-                  ? userData?.username.length > 8 && isMobile
-                    ? userData?.username.substring(0, 8) + '...'
-                    : userData?.username
-                  : '-'}
-              </span>
-              <button onClick={() => openModal()}>
-                <LogoExit />
-                {isMobile || <span>{t('exit')}</span>}
-              </button>
-            </WrapBtn>
+            <DivWrapper>
+              <TranslationPanel />
+              <WrapBtn>
+                <span>
+                  {userData?.username
+                    ? userData?.username.length > 8 && isMobile
+                      ? userData?.username.substring(0, 8) + '...'
+                      : userData?.username
+                    : '-'}
+                </span>
+                <button onClick={() => openModal()}>
+                  <LogoExit />
+                  {isMobile || <span>{t('exit')}</span>}
+                </button>
+              </WrapBtn>
+            </DivWrapper>
           </WrapHeader>
         </Container>
       </HeaderStyled>

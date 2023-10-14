@@ -13,6 +13,14 @@ export const HeaderStyled = styled.header`
   }
 `;
 
+export const DivWrapper = styled.div`
+  min-width: 192px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15px;
+`;
+
 export const WrapHeader = styled.div`
   display: flex;
 

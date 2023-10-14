@@ -1,14 +1,18 @@
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
 
 import { registerSchema } from 'services/validation/validationRegisterSchema';
 import { usePasswordToggle } from 'Hooks/usePasswordToggle';
+import { registerThunk } from 'redux/registerReducers/registerThunks';
 
 import { FormError } from 'components/FormError/FormError';
 import { Logo } from 'components/Logo/Logo';
 import { TogglePasswordIcon } from 'components/TogglePasswordVisibility/TogglePasswordVisibility';
 import { ConfirmPasswordIndicator } from 'components/ConfirmPasswordIndicator/ConfirmPasswordIndicator';
+import Button from 'components/Button/Button';
+import { IndicatorPasswordStrength } from 'components/IndicatorPasswordStrength/IndicatorPasswordStrength';
 
 import {
   LinkStyled,
@@ -26,9 +30,6 @@ import {
   WrapperIcon2,
   WrapperIcon3,
 } from 'components/LoginForm/LoginForm.styled';
-import Button from 'components/Button/Button';
-import { IndicatorPasswordStrength } from 'components/IndicatorPasswordStrength/IndicatorPasswordStrength';
-import { registerThunk } from 'redux/registerReducers/registerThunks';
 
 export const RegisterForm = () => {
   const { showPasswords, togglePasswordVisibility } = usePasswordToggle([
@@ -37,6 +38,7 @@ export const RegisterForm = () => {
   ]);
 
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const initialValues = {
     username: '',
@@ -51,9 +53,7 @@ export const RegisterForm = () => {
       .unwrap()
       .then(data => {
         resetForm();
-        toast.success(
-          `Hi! ${data.user.username}, thanks for signing up. Welcome to Money Guard! We are happy to approve you!`
-        );
+        toast.success(`${t('Hi')}! ${data.user.username}, ${t('thanks')}!`);
       })
       .catch(error => {
         toast.error(`${error}`);
@@ -65,7 +65,7 @@ export const RegisterForm = () => {
       <Logo />
       <Formik
         initialValues={initialValues}
-        validationSchema={registerSchema}
+        validationSchema={registerSchema(t)}
         onSubmit={handleSubmit}
       >
         {({ values, handleChange, handleBlur, touched, errors }) => (
@@ -75,7 +75,7 @@ export const RegisterForm = () => {
                 <FieldStyled
                   type="text"
                   name="username"
-                  placeholder="First name"
+                  placeholder={t('First name')}
                   autoComplete="off"
                   required
                 />
@@ -86,7 +86,7 @@ export const RegisterForm = () => {
                 <FieldStyled
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder={t('email')}
                   autoComplete="off"
                   required
                 />
@@ -99,8 +99,10 @@ export const RegisterForm = () => {
                   <FieldStyled
                     type={showPasswords.password1 ? 'text' : 'password'}
                     name="password"
-                    title="Enter the password more difficult, letter, digit, capital letter."
-                    placeholder="Password"
+                    title={t(
+                      'Enter the password more difficult, letter, digit, capital letter.'
+                    )}
+                    placeholder={t('password')}
                     required
                     value={values.password}
                     onChange={handleChange}
@@ -121,8 +123,10 @@ export const RegisterForm = () => {
                   <FieldStyled
                     type={showPasswords.password2 ? 'text' : 'password'}
                     name="confirmPassword"
-                    title="Enter the password more difficult, letter, digit, capital letter."
-                    placeholder="Confirm Password"
+                    title={t(
+                      'Enter the password more difficult, letter, digit, capital letter.'
+                    )}
+                    placeholder={t('Confirm Password')}
                     autoComplete="off"
                     required
                   />
@@ -143,12 +147,12 @@ export const RegisterForm = () => {
               <FormError name="confirmPassword" />
             </WrapperField>
             <WrapperButton>
-              <Button type="submit" text="register" />
+              <Button type="submit" text={t('register')} />
             </WrapperButton>
           </FormStyled>
         )}
       </Formik>
-      <LinkStyled to="/login">Log in</LinkStyled>
+      <LinkStyled to="/login">{t('login btn')}</LinkStyled>
     </WrapperFormReg>
   );
 };

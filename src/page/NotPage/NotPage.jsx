@@ -1,16 +1,18 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import picture from '../../images/money-pig.webp';
 import { NotPageSection, NotPageStyled, ImgPig } from './NotPage.styled';
-import { Link } from 'react-router-dom';
 
 const NotPage = () => {
+  const { t } = useTranslation();
+
   return (
     <NotPageSection>
       <NotPageStyled className="text404">
-        <p>Oops! 404 page not found</p>
+        <p>{t('Oops! 404 page not found')}</p>
         <Link to={'/'} className="link404">
-          GO HOME?
+          {t('GO HOME?')}
         </Link>
       </NotPageStyled>
       <div>

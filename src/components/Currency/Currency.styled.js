@@ -101,3 +101,20 @@ export const StyledImg = styled.img`
   display: inline-block;
   width: 100%;
 `;
+
+export const Usd = styled.span`
+  @media only screen and (min-width: 1280px) {
+    color: #ff868d;
+    position: absolute;
+    top: 120px;
+    left: 45px;
+  }
+`;
+export const Eur = styled.span`
+  @media only screen and (min-width: 1280px) {
+    color: #ff868d;
+    position: absolute;
+    top: 86px;
+    right: 92px;
+  }
+`;

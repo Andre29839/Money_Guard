@@ -109,7 +109,6 @@ export const PasswordlIcon = styled(IoMdLock)`
 `;
 export const WrapperIcon3 = styled.div`
   position: relative;
-  cursor: pointer;
 `;
 
 export const PasswordlIconLook = styled.div`

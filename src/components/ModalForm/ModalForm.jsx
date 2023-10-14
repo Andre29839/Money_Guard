@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { IoIosClose } from 'react-icons/io';
 import { ButtonIcon, ModalBackdrop, ModalContent } from './ModalForm.styled';

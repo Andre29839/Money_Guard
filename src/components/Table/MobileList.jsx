@@ -1,4 +1,4 @@
-import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -26,6 +26,8 @@ import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
 import { NoTransactionsText } from 'components/TransactionsList/TransactionsList.styled';
 
 const MobileTransactionList = () => {
+  const { t } = useTranslation();
+
   const transactions = useSelector(selectAllTransactions);
   const categories = useSelector(selectTransactionsCategories);
   const dispatch = useDispatch();
@@ -38,7 +40,7 @@ const MobileTransactionList = () => {
   };
 
   const gategoryNamesbyId = categories.reduce((res, category) => {
-    res[category.id] = category.name;
+    res[category.id] = t(category.name);
     return res;
   }, {});
 
@@ -53,12 +55,12 @@ const MobileTransactionList = () => {
   const transactionSymbol = type =>
     type === 'INCOME' ? '+' : type === 'EXPENSE' ? '-' : '';
 
-  return transactions.length === 0 ? (
+  return transactions?.length === 0 ? (
     <table>
       <tbody>
         <tr>
           <NoTransactionsText colSpan="7">
-            Your transactions will be here
+            {t('Your transactions will be here')}
           </NoTransactionsText>
         </tr>
       </tbody>
@@ -73,14 +75,14 @@ const MobileTransactionList = () => {
                 <StyledTable type={item.type === 'INCOME' ? 1 : 0}>
                   <Thead>
                     <Tr>
-                      <Th>Date</Th>
-                      <Th>Type</Th>
-                      <Th>Category</Th>
-                      <Th>Comment</Th>
-                      <Th>Sum</Th>
+                      <Th>{t('date')}</Th>
+                      <Th>{t('type')}</Th>
+                      <Th>{t('category')}</Th>
+                      <Th>{t('comment')}</Th>
+                      <Th>{t('sum')}</Th>
                       <Th>
                         <DeleteBtn onClick={() => handleDelete(item.id)}>
-                          Delete
+                          {t('btnDelete')}
                         </DeleteBtn>
                       </Th>
                     </Tr>
@@ -90,14 +92,16 @@ const MobileTransactionList = () => {
                       <Td>{formatDate(item.transactionDate)}</Td>
                       <Td>{transactionSymbol(item.type)}</Td>
                       <Td>
-                        {gategoryNamesbyId[item.categoryId].length > 9
-                          ? gategoryNamesbyId[item.categoryId].substring(0, 9) +
-                            '...'
+                        {gategoryNamesbyId[item.categoryId]?.length > 12
+                          ? gategoryNamesbyId[item.categoryId].substring(
+                              0,
+                              12
+                            ) + '...'
                           : gategoryNamesbyId[item.categoryId]}
                       </Td>
                       <Td>
                         {item.comment
-                          ? item.comment.length > 8
+                          ? item.comment?.length > 8
                             ? item.comment.substring(0, 8) + '...'
                             : item.comment
                           : '-'}

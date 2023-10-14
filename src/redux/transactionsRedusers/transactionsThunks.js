@@ -8,6 +8,7 @@ import {
   getTransactionsSummaryRequest,
   patchTransactionsRequest,
 } from 'services/api/transactionsApi';
+import { useTranslation } from 'react-i18next';
 
 export const getTransactionsStatisticThunk = createAsyncThunk(
   'transactions/getTransactionsSummaryThunk',
@@ -46,12 +47,13 @@ export const getTransactionsThunk = createAsyncThunk(
 export const addTransactionsThunk = createAsyncThunk(
   'transactions/addTransactionsThunk',
   async (formData, { rejectWithValue }) => {
+    const { t } = useTranslation();
     try {
       const newTransaction = await addTransactionsRequest(formData);
-      toast.success('Transaction completed successfully!');
+      toast.success(t('Transaction completed successfully!'));
       return newTransaction;
     } catch (error) {
-      toast.error(`Transaction completed with error!`);
+      toast.error(t('Transaction completed with error!'));
       return rejectWithValue(error.message);
     }
   }
@@ -59,9 +61,10 @@ export const addTransactionsThunk = createAsyncThunk(
 export const patchTransactionsThunk = createAsyncThunk(
   'transactions/patchTransactionsThunk',
   async ({ id, updatedData }, { rejectWithValue }) => {
+    const { t } = useTranslation();
     try {
       const editTransaction = await patchTransactionsRequest(id, updatedData);
-      toast.success('Transaction edited successfully!');
+      toast.success(t('Transaction edited successfully!'));
       return editTransaction;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -71,9 +74,10 @@ export const patchTransactionsThunk = createAsyncThunk(
 export const deleteTransactionsThunk = createAsyncThunk(
   'transactions/deleteTransactionsThunk',
   async (transactionId, { rejectWithValue }) => {
+    const { t } = useTranslation();
     try {
       const delTransaction = await deleteTransactionsRequest(transactionId);
-      toast.success('Transaction deleted successfully!');
+      toast.success(t('Transaction deleted successfully!'));
       return delTransaction;
     } catch (error) {
       return rejectWithValue(error.message);

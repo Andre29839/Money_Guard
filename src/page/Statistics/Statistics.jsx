@@ -1,16 +1,18 @@
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import Chart from 'components/Chart/Chart';
 import DatePicker from 'components/DataForm/DataForm';
-import React from 'react';
-import { useSelector } from 'react-redux';
+import StatisticTable from 'components/StatisticTable/StatisticTable';
 import {
   StatisticsWrapper,
   TitleChart,
   TitleStatistics,
   WrapTable,
 } from './Statistics.styled';
-import StatisticTable from 'components/StatisticTable/StatisticTable';
 
 const Statistics = () => {
+  const { t } = useTranslation();
+
   const result = useSelector(
     state => state.transactions.summary.categoriesSummary
   );
@@ -23,7 +25,7 @@ const Statistics = () => {
     <>
       <StatisticsWrapper>
         <TitleChart>
-          <TitleStatistics>Statistics</TitleStatistics>
+          <TitleStatistics>{t('stat')}</TitleStatistics>
           <Chart data={filterExpense} />
         </TitleChart>
         <WrapTable>

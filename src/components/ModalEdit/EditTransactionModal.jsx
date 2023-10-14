@@ -4,13 +4,16 @@ import ModalForm from 'components/ModalForm/ModalForm';
 import ModalEdit from './ModalEdit';
 import { EditBtn } from 'components/ModalAddTransaction/ModalAddTransactionButton/ModalAddTransactionButton.styled';
 import { EditWrapper } from 'components/Table/MobileList.styled';
-import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
+import useWindow from 'Hooks/useWindow';
 
 const EditTransactionModal = ({ item }) => {
   const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
     useToggleModal();
 
-  const isMobile = useMediaQuery({ maxWidth: 767.9 });
+  const { isMobile } = useWindow();
+
+  const { t } = useTranslation();
 
   return (
     <div
@@ -26,7 +29,7 @@ const EditTransactionModal = ({ item }) => {
       >
         <EditWrapper>
           <BiPencil />
-          {isMobile && 'Edit'}
+          {isMobile && t('btnEdit')}
         </EditWrapper>
       </EditBtn>
 

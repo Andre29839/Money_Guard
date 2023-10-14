@@ -56,7 +56,7 @@ export const LoginForm = () => {
       <Logo />
       <Formik
         initialValues={initialValues}
-        validationSchema={loginSchema}
+        validationSchema={loginSchema(t)}
         onSubmit={handleSubmit}
       >
         <FormStyled>

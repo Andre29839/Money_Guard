@@ -12,7 +12,6 @@ export const breakpoints = {
 };
 
 const ContainerStyle = styled.div`
-  min-width: ${size.mobile};
   margin: 0 auto;
   padding: 0 20px;
   position: relative;

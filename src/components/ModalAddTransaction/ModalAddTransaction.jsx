@@ -19,11 +19,13 @@ import {
   InputWrapper,
   TwoColumnRow,
 } from './ModalAddTransaction.styled';
+import { useTranslation } from 'react-i18next';
 
 const ModalAddTransaction = ({ closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
   const categories = useSelector(selectTransactionsCategories);
+  const { t } = useTranslation();
 
   const incomeId = categories
     .filter(category => (category.type === 'INCOME' ? category.id : null))
@@ -66,25 +68,26 @@ const ModalAddTransaction = ({ closeModal }) => {
         type: bool(),
         category: mixed().when('type', {
           is: type => !type,
-          then: () => mixed().required('Please choose transaction category.'),
+          then: () =>
+            mixed().required(t('Please choose transaction category.')),
           otherwise: () => mixed().notRequired(),
         }),
         value: number()
-          .typeError('Transaction value must be a number')
+          .typeError(t('Transaction value must be a number'))
           .test(
             'len',
-            'Transaction value can be a maximum of 16 characters',
-            val => val.toString().length <= 16
+            t('Transaction value can be a maximum of 10 characters'),
+            val => val.toString().length <= 10
           )
-          .required('Please provide transaction value.'),
+          .required(t('Please provide transaction value.')),
         date: date()
           .transform(dateTransformer)
-          .typeError('Please enter a valid date')
-          .required('Please provide transaction date.'),
+          .typeError(t('Please enter a valid date'))
+          .required(t('Please provide transaction date.')),
         comment: string()
           .notRequired()
-          .max(25, 'Maximum must be 25 characters')
-          .min(3, 'Minimum must be 3 characters'),
+          .max(25, t('Maximum must be 25 characters'))
+          .min(3, t('Minimum must be 3 characters')),
       })}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         try {
@@ -100,7 +103,7 @@ const ModalAddTransaction = ({ closeModal }) => {
     >
       {({ values, setFieldValue, handleBlur }) => (
         <FormikForm>
-          <Heading>Add transaction</Heading>
+          <Heading>{t('Add transaction')}</Heading>
           <Switch
             name="type"
             checked={isChecked}
@@ -111,7 +114,7 @@ const ModalAddTransaction = ({ closeModal }) => {
             <InputWrapper>
               <CategorySelect
                 name="category"
-                placeholder="Select a category"
+                placeholder={t('Select a category')}
                 value={values.category}
                 onChange={option => setFieldValue('category', option)}
                 options={categories
@@ -119,7 +122,7 @@ const ModalAddTransaction = ({ closeModal }) => {
                     if (option.name !== 'Income') {
                       return {
                         value: option.type,
-                        label: option.name,
+                        label: t(option.name),
                         id: option.id,
                       };
                     }
@@ -134,7 +137,7 @@ const ModalAddTransaction = ({ closeModal }) => {
             <InputWrapper>
               <BaseInput
                 placeholder="0.00"
-                title="Please put the transaction value"
+                title={t('Please put the transaction value')}
                 name="value"
                 type="number"
                 autoComplete="off"
@@ -156,19 +159,19 @@ const ModalAddTransaction = ({ closeModal }) => {
           </TwoColumnRow>
           <InputWrapper>
             <TextArea
-              placeholder="Comment"
-              title="Please describe your transaction."
+              placeholder={t('comment')}
+              title={t('Please describe your transaction.')}
               name="comment"
               type="text"
               autoComplete="off"
             />
             <ErrorText name="comment" component="div" />
           </InputWrapper>
-          <Button type="submit" variant="primary" text="Add" />
+          <Button type="submit" variant="primary" text={t('add')} />
           <Button
             type="button"
             variant="secondary"
-            text="Cancel"
+            text={t('cancel')}
             onClick={() => closeModal()}
           />
         </FormikForm>

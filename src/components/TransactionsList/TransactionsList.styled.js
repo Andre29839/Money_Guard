@@ -60,11 +60,11 @@ export const ThLast = styled.th`
 `;
 
 export const ThType = styled(Th)`
-  padding-right: 51px;
+  padding-right: 21px;
 `;
 
 export const ThCategory = styled(Th)`
-  padding-right: 69px;
+  /* padding-right: 69px; */
 `;
 
 export const ThComment = styled(Th)`
@@ -73,7 +73,7 @@ export const ThComment = styled(Th)`
 export const ThDate = styled(Th)`
   @media screen and (min-width: 768px) {
     border-radius: 8px 0 0 8px;
-    padding: 16px 64px 16px 20px;
+    padding: 16px 44px 16px 20px;
   }
 `;
 
@@ -116,9 +116,9 @@ export const MobileTransactionListWrapper = styled.div`
 `;
 
 export const ButtonDelete = styled.button`
-  width: 65px;
+  min-width: 65px;
   height: 29px;
-  padding: 4px 12px;
+  padding: 4px 5px;
   background: ${({ theme }) => theme.colors.btnGradient};
   border-radius: 20px;
   box-shadow: ${({ theme }) => theme.shadows.secondary};

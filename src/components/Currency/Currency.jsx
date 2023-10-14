@@ -15,7 +15,10 @@ import {
   StyledTh,
   StyledThBox,
   WrapperCurrency,
+  Usd,
+  Eur,
 } from './Currency.styled';
+import useWindow from 'Hooks/useWindow';
 
 const Currency = () => {
   const [currency, setCurrency] = useState([]);
@@ -24,6 +27,11 @@ const Currency = () => {
   const token = useSelector(state => state.auth.token);
 
   const { t } = useTranslation();
+  const { isMobile } = useWindow();
+
+  const currencyChart = useSelector(currencySelector);
+  const usdPurch = currencyChart[0]?.rateBuy.toFixed(2);
+  const eurPurch = currencyChart[1]?.rateBuy.toFixed(2);
 
   const updateLastUpdatedTime = () => {
     const newTime = Date.now();
@@ -68,6 +76,12 @@ const Currency = () => {
                   </StyledTdBox>
                 );
               })}
+            {isMobile && (
+              <>
+                <Usd>{usdPurch}</Usd>
+                <Eur>{eurPurch}</Eur>
+              </>
+            )}
           </StyledTBody>
         </StyledTable>
         <StyledImg src={diagrame} alt="chart" />

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledSideBox = styled.div`
-  width: 100%;
   height: 100%;
   display: ${props => props.display || 'inline-block'};
   flex-direction: ${props => props.flexDirection || 'column'};
@@ -22,6 +21,7 @@ export const StyledSideBox = styled.div`
   }
   @media (max-width: 767.9px) {
     border-right: none;
+    width: 100%;
   }
 `;
 
