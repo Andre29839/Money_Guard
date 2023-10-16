@@ -10,6 +10,7 @@ export const TransactionColor = styled.span`
 
 export const Section = styled.div`
   margin-top: 20px;
+  margin-bottom: 80px;
 `;
 
 export const StyledWrap = styled.div`
@@ -32,6 +33,7 @@ export const StyledTable = styled.table`
   th,
   td {
     height: 55.1px;
+    padding: 0 10px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1279.9px) {
