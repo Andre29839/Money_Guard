@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Money_Guard/static/css/main.83b8eec4.css",
-    "main.js": "/Money_Guard/static/js/main.615caeee.js",
+    "main.js": "/Money_Guard/static/js/main.1e1cd591.js",
     "static/js/97.db272317.chunk.js": "/Money_Guard/static/js/97.db272317.chunk.js",
     "static/js/73.ceeaf3c8.chunk.js": "/Money_Guard/static/js/73.ceeaf3c8.chunk.js",
     "static/js/9.0db59b7c.chunk.js": "/Money_Guard/static/js/9.0db59b7c.chunk.js",
-    "static/js/631.3b3eb99c.chunk.js": "/Money_Guard/static/js/631.3b3eb99c.chunk.js",
-    "static/js/945.3b2c4e55.chunk.js": "/Money_Guard/static/js/945.3b2c4e55.chunk.js",
-    "static/js/923.ef8fe76f.chunk.js": "/Money_Guard/static/js/923.ef8fe76f.chunk.js",
+    "static/js/70.52b256cb.chunk.js": "/Money_Guard/static/js/70.52b256cb.chunk.js",
+    "static/js/945.eaa2d97d.chunk.js": "/Money_Guard/static/js/945.eaa2d97d.chunk.js",
+    "static/js/923.7daf4c93.chunk.js": "/Money_Guard/static/js/923.7daf4c93.chunk.js",
     "static/js/355.a575088c.chunk.js": "/Money_Guard/static/js/355.a575088c.chunk.js",
+    "static/js/963.7adb054d.chunk.js": "/Money_Guard/static/js/963.7adb054d.chunk.js",
     "static/js/569.b68a8b1e.chunk.js": "/Money_Guard/static/js/569.b68a8b1e.chunk.js",
-    "static/js/385.0a3588dd.chunk.js": "/Money_Guard/static/js/385.0a3588dd.chunk.js",
-    "static/js/963.e52582ce.chunk.js": "/Money_Guard/static/js/963.e52582ce.chunk.js",
+    "static/js/731.ef61258a.chunk.js": "/Money_Guard/static/js/731.ef61258a.chunk.js",
     "static/media/Gradient.png": "/Money_Guard/static/media/Gradient.519113a645fa909dcaa5.png",
     "static/media/bg-register-desktop@2x.jpg": "/Money_Guard/static/media/bg-register-desktop@2x.7208adbe318b1dd9d0be.jpg",
     "static/media/bg-register-tablet@2x.jpg": "/Money_Guard/static/media/bg-register-tablet@2x.010019b9d54926c0c140.jpg",
@@ -33,20 +33,20 @@
     "static/media/left-bottom-part.svg": "/Money_Guard/static/media/left-bottom-part.c9cfa8c83a2cdc87589417e8b586ffd1.svg",
     "static/media/right-bottom-part.svg": "/Money_Guard/static/media/right-bottom-part.ec07fda7d9ab133f7b181eae52c15c89.svg",
     "main.83b8eec4.css.map": "/Money_Guard/static/css/main.83b8eec4.css.map",
-    "main.615caeee.js.map": "/Money_Guard/static/js/main.615caeee.js.map",
+    "main.1e1cd591.js.map": "/Money_Guard/static/js/main.1e1cd591.js.map",
     "97.db272317.chunk.js.map": "/Money_Guard/static/js/97.db272317.chunk.js.map",
     "73.ceeaf3c8.chunk.js.map": "/Money_Guard/static/js/73.ceeaf3c8.chunk.js.map",
     "9.0db59b7c.chunk.js.map": "/Money_Guard/static/js/9.0db59b7c.chunk.js.map",
-    "631.3b3eb99c.chunk.js.map": "/Money_Guard/static/js/631.3b3eb99c.chunk.js.map",
-    "945.3b2c4e55.chunk.js.map": "/Money_Guard/static/js/945.3b2c4e55.chunk.js.map",
-    "923.ef8fe76f.chunk.js.map": "/Money_Guard/static/js/923.ef8fe76f.chunk.js.map",
+    "70.52b256cb.chunk.js.map": "/Money_Guard/static/js/70.52b256cb.chunk.js.map",
+    "945.eaa2d97d.chunk.js.map": "/Money_Guard/static/js/945.eaa2d97d.chunk.js.map",
+    "923.7daf4c93.chunk.js.map": "/Money_Guard/static/js/923.7daf4c93.chunk.js.map",
     "355.a575088c.chunk.js.map": "/Money_Guard/static/js/355.a575088c.chunk.js.map",
+    "963.7adb054d.chunk.js.map": "/Money_Guard/static/js/963.7adb054d.chunk.js.map",
     "569.b68a8b1e.chunk.js.map": "/Money_Guard/static/js/569.b68a8b1e.chunk.js.map",
-    "385.0a3588dd.chunk.js.map": "/Money_Guard/static/js/385.0a3588dd.chunk.js.map",
-    "963.e52582ce.chunk.js.map": "/Money_Guard/static/js/963.e52582ce.chunk.js.map"
+    "731.ef61258a.chunk.js.map": "/Money_Guard/static/js/731.ef61258a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.83b8eec4.css",
-    "static/js/main.615caeee.js"
+    "static/js/main.1e1cd591.js"
   ]
 }
