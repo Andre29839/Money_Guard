@@ -7,7 +7,7 @@ export const ButtonStyled = styled.button`
   border: 1px solid;
   border-radius: 10px;
   text-align: center;
-  margin-right: 8px;
+  margin-right: 5px;
   font-family: Poppins;
   font-size: 12px;
   font-style: normal;
