@@ -8,7 +8,7 @@ import ModalForm from 'components/ModalForm/ModalForm';
 import FeedbackForm from 'components/FeedbackForm/FeedbackForm';
 import useToggleModal from 'Hooks/useToggleModal';
 
-import { Box, FeedbackButton } from 'page/Dashboard/Dashboard.styled';
+import { Box } from 'page/Dashboard/Dashboard.styled';
 import Button from 'components/Button/Button';
 
 function DashboardPage() {
