@@ -11,6 +11,7 @@ import {
   TransactionsListWrapper,
 } from 'components/TransactionsList/TransactionsList.styled';
 import ModalAddTransactionButton from 'components/ModalAddTransaction/ModalAddTransactionButton/ModalAddTransactionButton';
+
 import { SectionHome } from 'components/Table/MobileList.styled';
 
 const Home = () => {

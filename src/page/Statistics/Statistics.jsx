@@ -22,18 +22,16 @@ const Statistics = () => {
     : [];
 
   return (
-    <>
-      <StatisticsWrapper>
-        <TitleChart>
-          <TitleStatistics>{t('stat')}</TitleStatistics>
-          <Chart data={filterExpense} />
-        </TitleChart>
-        <WrapTable>
-          <DatePicker />
-          <StatisticTable />
-        </WrapTable>
-      </StatisticsWrapper>
-    </>
+    <StatisticsWrapper>
+      <TitleChart>
+        <TitleStatistics>{t('stat')}</TitleStatistics>
+        <Chart data={filterExpense} />
+      </TitleChart>
+      <WrapTable>
+        <DatePicker />
+        <StatisticTable />
+      </WrapTable>
+    </StatisticsWrapper>
   );
 };
 

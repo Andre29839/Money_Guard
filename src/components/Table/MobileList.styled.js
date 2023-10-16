@@ -5,7 +5,7 @@ export const TableListContainer = styled.div`
     margin-bottom: 8px;
   }
   li:last-child {
-    padding-bottom: 60px;
+    padding-bottom: 80px;
   }
 `;
 

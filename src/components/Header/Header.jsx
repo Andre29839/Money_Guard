@@ -41,9 +41,9 @@ const Header = () => {
                 <span>
                   {userData?.username
                     ? userData?.username.length > 8 && isMobile
-                      ? userData?.username.substring(0, 8) + '...'
+                      ? userData?.username.substring(0, 6) + '...'
                       : userData?.username
-                    : '-'}
+                    : 'Anonymous'}
                 </span>
                 <button onClick={() => openModal()}>
                   <LogoExit />

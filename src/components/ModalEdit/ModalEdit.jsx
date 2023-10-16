@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { parse } from 'date-fns';
 import { Formik } from 'formik';
 import { RxSlash } from 'react-icons/rx';
@@ -21,7 +22,6 @@ import { patchTransactionsThunk } from 'redux/transactionsRedusers/transactionsT
 import Button from 'components/Button/Button';
 import { refreshBalanceThunk } from 'redux/registerReducers/registerThunks';
 import { selectTransactionsCategories } from 'redux/transactionsRedusers/transactionsSelectors';
-import { useTranslation } from 'react-i18next';
 
 const ModalEdit = ({ closeModal, item }) => {
   const categories = useSelector(selectTransactionsCategories);

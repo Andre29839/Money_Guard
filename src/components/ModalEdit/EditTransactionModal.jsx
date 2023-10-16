@@ -1,11 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { BiPencil } from 'react-icons/bi';
 import useToggleModal from 'Hooks/useToggleModal';
+import useWindow from 'Hooks/useWindow';
 import ModalForm from 'components/ModalForm/ModalForm';
 import ModalEdit from './ModalEdit';
 import { EditBtn } from 'components/ModalAddTransaction/ModalAddTransactionButton/ModalAddTransactionButton.styled';
 import { EditWrapper } from 'components/Table/MobileList.styled';
-import { useTranslation } from 'react-i18next';
-import useWindow from 'Hooks/useWindow';
 
 const EditTransactionModal = ({ item }) => {
   const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =

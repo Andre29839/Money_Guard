@@ -95,5 +95,6 @@
   "Too Short!": "Занадто коротко!",
   "Passwords must match": "Паролі повинні збігатися",
   "Confirm Password is required": "Потрібно підтвердити пароль",
-  "required field": "Обов'язкове поле"
+  "required field": "Обов'язкове поле",
+  "The form has been submitted successfully!": "Форму успішно надіслано!"
 }

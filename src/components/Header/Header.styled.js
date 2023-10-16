@@ -18,7 +18,6 @@ export const DivWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 15px;
 `;
 
 export const WrapHeader = styled.div`

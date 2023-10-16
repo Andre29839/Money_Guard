@@ -61,9 +61,13 @@ export const FieldStyled = styled(Field)`
   @media (min-width: 768px) {
     width: 409px;
   }
-  &::-webkit-autofill,
-  &::-webkit-contacts-auto-fill-button,
-  &::-webkit-credentials-auto-fill-button {
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--white) !important;
     visibility: hidden;
     position: absolute;
     right: 0;

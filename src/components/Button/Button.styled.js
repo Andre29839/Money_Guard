@@ -56,4 +56,19 @@ export const ButtonStyled = styled.button`
       width: ${({ theme }) => theme.spacing(17.5)};
       height: ${({ theme }) => theme.spacing(7.5)};
     `}
+    /* Варіант "feedback" */
+      ${({ $variant }) =>
+    $variant === 'feedback' &&
+    css`
+      background: ${({ theme }) => theme.colors.btnGradient};
+      position: fixed;
+      bottom: 18px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+
+      @media (max-width: 767.9px) {
+        width: 210px;
+      }
+    `}
 `;

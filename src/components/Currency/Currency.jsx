@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { currencySelector } from 'redux/currencyRedusers/currencySelectors';
 import { currencyThunk } from 'redux/currencyRedusers/currencyThunk';
 import diagrame from 'images/chart/chart-tablet.png';
+import useWindow from 'Hooks/useWindow';
 import {
   StyledBox,
   StyledImg,
@@ -18,7 +19,6 @@ import {
   Usd,
   Eur,
 } from './Currency.styled';
-import useWindow from 'Hooks/useWindow';
 
 const Currency = () => {
   const [currency, setCurrency] = useState([]);
@@ -27,7 +27,7 @@ const Currency = () => {
   const token = useSelector(state => state.auth.token);
 
   const { t } = useTranslation();
-  const { isMobile } = useWindow();
+  const { isDesktop } = useWindow();
 
   const currencyChart = useSelector(currencySelector);
   const usdPurch = currencyChart[0]?.rateBuy.toFixed(2);
@@ -76,7 +76,7 @@ const Currency = () => {
                   </StyledTdBox>
                 );
               })}
-            {isMobile && (
+            {isDesktop && (
               <>
                 <Usd>{usdPurch}</Usd>
                 <Eur>{eurPurch}</Eur>

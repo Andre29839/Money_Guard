@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   deleteTransactionsThunk,
   getTransactionsThunk,
-} from '../../redux/transactionsRedusers/transactionsThunks';
+} from 'redux/transactionsRedusers/transactionsThunks';
 
 import { refreshBalanceThunk } from 'redux/registerReducers/registerThunks';
 import {

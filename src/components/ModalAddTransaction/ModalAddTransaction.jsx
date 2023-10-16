@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { parse } from 'date-fns';
 import { Formik } from 'formik';
@@ -19,7 +20,6 @@ import {
   InputWrapper,
   TwoColumnRow,
 } from './ModalAddTransaction.styled';
-import { useTranslation } from 'react-i18next';
 
 const ModalAddTransaction = ({ closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
