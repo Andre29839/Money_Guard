@@ -23,7 +23,7 @@ export const FeedbackInput = styled.input`
   font-size: 18px;
   font-weight: 400;
   line-height: 1.33;
-  color: var(--menu-list);
+  color: var(--white);
   max-width: 100%;
   margin-bottom: 10px;
   width: 280px;

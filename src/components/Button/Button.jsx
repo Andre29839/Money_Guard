@@ -5,9 +5,15 @@ const Button = ({
   text,
   type = 'button',
   variant = 'primary',
+  disabled,
 }) => {
   return (
-    <ButtonStyled type={type} onClick={onClick} $variant={variant}>
+    <ButtonStyled
+      type={type}
+      onClick={onClick}
+      $variant={variant}
+      disabled={disabled}
+    >
       {text}
     </ButtonStyled>
   );

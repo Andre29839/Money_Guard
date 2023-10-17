@@ -33,6 +33,20 @@ export const ButtonStyled = styled.button`
     box-shadow: 1px 5px 8px 0px rgba(0, 0, 0, 0.5);
   }
 
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+  }
+
+  &:disabled:hover,
+  &:disabled:focus {
+    border-radius: 20px;
+    border: none;
+    transform: scale(1);
+    box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+    cursor: auto;
+  }
+
   /* Вариант "primary" */
   ${({ $variant }) =>
     $variant === 'primary' &&
