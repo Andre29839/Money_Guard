@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshAuthThunk } from 'redux/registerReducers/registerThunks';
+
 import {
   selectIsLogin,
   selectToken,
@@ -18,11 +19,7 @@ function App() {
     }
   }, [dispatch, isLogin, token]);
 
-  return (
-    <div>
-      <UserRoutes />
-    </div>
-  );
+  return <UserRoutes />;
 }
 
 export default App;

@@ -67,7 +67,7 @@ export const FieldStyled = styled(Field)`
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: var(--white);
+    -webkit-text-fill-color: var(--white) !important;
     right: 0;
   }
 `;
