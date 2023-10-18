@@ -1,8 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import ReCAPTCHA from 'react-google-recaptcha';
+import validator from 'validator';
 import Button from 'components/Button/Button';
 import {
   FeedbackButtonContainer,
@@ -36,8 +37,14 @@ const FeedbackForm = ({ closeModal }) => {
     const token = recaptchaRef.current.getValue();
 
     const { email, name, feedback } = e.target;
+
+    if (!validator.isEmail(email.value)) {
+      toast.error(t('Please enter a valid email address'));
+      return;
+    }
+
     const clientFeedback = {
-      from_name: name.value,
+      from_name: name.value || 'Anonymous',
       message: feedback.value,
       from_email: email.value,
       'g-recaptcha-response': token,
