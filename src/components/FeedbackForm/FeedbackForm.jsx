@@ -97,7 +97,7 @@ const FeedbackForm = ({ closeModal }) => {
       <FeedbackButtonContainer>
         <ReCAPTCHA
           ref={recaptchaRef}
-          sitekey="6Lf41dQoAAAAALD2-bNvLxIWxQuOGwb72XD8TM-u"
+          sitekey="6LcX-NQoAAAAAPVOu16JjT3nzattIliylPHOIaZ9"
           onChange={onChange}
         />
         <Button
