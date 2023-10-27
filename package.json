@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "https://money-guard.onrender.com",
+  "repository": {
+    "url": "https://github.com/Andre29839/Money_Guard"
+  },
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@emailjs/browser": "^3.11.0",
