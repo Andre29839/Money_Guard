@@ -2,8 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/moneygua/public_html/
-    - export REPOPATH=/home2/moneygua/money-guard.ua/Andre29839
-    - cd $REPOPATH
-    - /usr/local/bin/npm install
-    - /usr/local/bin/npm run build
-    - /bin/cp -r $REPOPATH/build/* $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
