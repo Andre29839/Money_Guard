@@ -32,3 +32,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </ThemeProvider>
 );
+
+console.log(BrowserRouter);
