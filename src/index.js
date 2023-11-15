@@ -24,7 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <ThemeProvider theme={theme}>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/">
+        <BrowserRouter basename="/Money_Guard/">
           <AppWithLocation />
           <ToastContainer autoClose={2500} theme="dark" />
         </BrowserRouter>
@@ -32,5 +32,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Provider>
   </ThemeProvider>
 );
-
-console.log(BrowserRouter);
