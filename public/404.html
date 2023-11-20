@@ -4,7 +4,8 @@
     <meta charset="utf-8" />
     <title>Single Page Apps for GitHub Pages</title>
     <script type="text/javascript">
-      window.location.href = '/';
+      const savedPath = localStorage.getItem('currentPath');
+      window.location.href = savedPath ? savedPath : '/';
     </script>
   </head>
   <body></body>
