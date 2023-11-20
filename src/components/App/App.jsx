@@ -13,6 +13,10 @@ function App() {
   const isLogin = useSelector(selectIsLogin);
   const token = useSelector(selectToken);
 
+  window.onbeforeunload = function () {
+    sessionStorage.setItem('currentPath', window.location.pathname);
+  };
+
   useEffect(() => {
     if (!isLogin && token) {
       dispatch(refreshAuthThunk());
