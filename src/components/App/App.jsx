@@ -14,7 +14,7 @@ function App() {
   const token = useSelector(selectToken);
 
   window.onbeforeunload = function () {
-    sessionStorage.setItem('currentPath', window.location.pathname);
+    localStorage.setItem('currentPath', window.location.pathname);
   };
 
   useEffect(() => {
