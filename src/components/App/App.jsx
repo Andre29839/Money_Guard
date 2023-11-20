@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { refreshAuthThunk } from 'redux/registerReducers/registerThunks';
 
 import {
@@ -11,13 +10,8 @@ import UserRoutes from './UserRoutes';
 
 function App() {
   const dispatch = useDispatch();
-  const location = useLocation();
   const isLogin = useSelector(selectIsLogin);
   const token = useSelector(selectToken);
-
-  useEffect(() => {
-    localStorage.setItem('currentPath', location.pathname);
-  }, [location]);
 
   useEffect(() => {
     if (!isLogin && token) {
